@@ -26,25 +26,62 @@ Every computer program uses primitive operations (e.g. add, subtract, multiply, 
    Container that stores a calculated gradient. It has a function for returning the derivative w.r.t. a Var object.
    
 ### [test.cpp](https://github.com/Btsan/myGradientLib/blob/master/test.cpp) output:
-
+###### Note that floating point error is noticeable
 ```
 ./test
 a = 2
 b = 3
-c = (ab + a + sin(b))/b
+c = (ab + a + sin(b)a)/b
 c += log(a)
 
-calculating gradient of c
+calculating gradient of c:
 a = 2, b = 3
-c = (ab + a + sin(b))/b + log(a)
+c = (ab + a + sin(b)a)/b + log(a)
 dc/da = 1.88037 	correct answer: 1.88037...
+dc/db = -0.913577 	correct answer: -0.9135...
 
 e = c - a
+f = c + ab
 
-calculating gradient of e
+calculating gradient of e:
 e = c - a
-e = (ab + a + sin(b))/b + log(a) - a
-dc/da = 0.880373 	correct answer: 0.88037...
+e = (ab + a + sin(b)a)/b + log(a) - a
+de/da = 0.880373 	correct answer: 0.88037...
+de/db = -0.913577 	correct answer: -0.9135...
+
+calculating gradient of f:
+f = (ab + a + sin(b)a)/b + log(a) + ab
+df/da = 4.88037 	correct answer: 4.88037...
+df/db = 1.08642 	correct answer: 1.086...
+
+g = sin(a) + cos(a) + tan(a) + sec(a) + csc(a) + cot(a) + sinh(a) + cosh(a) + tanh(a) + sech(a) + csch(a) + coth(a)
+
+calculating gradient of g:
+g = sin(a) + cos(a) + tan(a) + sec(a) + csc(a) + cot(a) + sinh(a) + cosh(a) + tanh(a) + sech(a) + csch(a) + coth(a)
+dg/da = 16.0349 	correct answer: 15.8348...
+dg/db = 0 	correct answer: 0
+
+h = (e^log10(b))^2 + a
+
+calculating gradient of h:
+h = (e^log10(b))^2
+dh/da = 1 	correct answer: 1
+dh/db = 0.751823 	correct answer: 0.7518...
+
+i = sinc(a) + sigmoid(b)
+
+calculating gradient of i:
+i = sinc(a) + sigmoid(b)
+di/da = -0.435398 	correct answer: -0.43539...
+di/db = -0.0451767 	correct answer: -0.04517...
+
+m = asin(b) + acos(a) + atan(a)
+
+calculating gradient of m:
+dm/da = 0 	correct answer: 0
+dm/db = inf 	correct answer: 1/0
+
+test ending with 8 nodes on tape
 ```
 
 ### Usage
