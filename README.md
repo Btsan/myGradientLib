@@ -25,7 +25,7 @@ Every computer program uses primitive operations (e.g. add, subtract, multiply, 
 
    Container that stores a calculated gradient. It has a function for returning the derivative w.r.t. a Var object.
    
-### test.cpp output:
+### [test.cpp](https://github.com/Btsan/myGradientLib/blob/master/test.cpp) output:
 
 ```
 ./test
@@ -57,9 +57,9 @@ compile with C++11
 ---
 
 I referenced these webpages:
-- [https://stats.stackexchange.com/questions/224140/step-by-step-example-of-reverse-mode-automatic-differentiation]
+- <https://stats.stackexchange.com/questions/224140/step-by-step-example-of-reverse-mode-automatic-differentiation>
 
    A concise example of how reverse-accumulation of derivatives can compute gradients.
-- [https://rufflewind.com/2016-12-30/reverse-mode-automatic-differentiation]
+- <https://rufflewind.com/2016-12-30/reverse-mode-automatic-differentiation>
 
    More technical example of implementing auto-differentiation in the Python and Rust languages.
