@@ -79,8 +79,6 @@ int main(int argc, char const *argv[])
 	cout << "\ncalculating gradient of m:\n";
 	m.grad(d);
 	cout << "dm/da = " << d.wrt(a) << " \tcorrect answer: 0\ndm/db = " << d.wrt(b) << " \tcorrect answer: 1/0" << endl;
-
-
-	cout << "\ntest ending with " << t.size() << " nodes on tape" << endl;
+	
 	return 0;
 }
