@@ -19,7 +19,7 @@ Every computer program uses primitive operations (e.g. add, subtract, multiply, 
    
 - __Tape__:
 
-   A dependency graph of Node objects. This gets traversed during gradident calculation, called from a Var object.
+   A dependency graph of Node objects. This gets traversed during gradient calculation, called from a Var object.
    
 - __Grad__:
 
