@@ -7,7 +7,7 @@ Every computer program uses primitive operations (e.g. add, subtract, multiply, 
 
 ---
 
-*tape.h* defines the following classes:
+[*tape.h*](https://github.com/Btsan/myGradientLib/blob/master/tape.h) defines the following classes:
 
 - __Var__:
 
