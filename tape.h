@@ -6,7 +6,6 @@
 
 #ifndef uint
 #define uint unsigned int
-#endif
 
 struct Tape;
 struct Grad;
@@ -29,7 +28,7 @@ struct Var
 	Tape* tape;
 	uint id;
 	float val;
-	Var(Tape* const, const uint, const float);
+	Var(Tape* const, const uint = 0, const float = 0);
 
 	void grad(Grad&);
 
@@ -40,6 +39,7 @@ struct Var
 	Var& operator/=(const Var&);
 	Var& operator^=(const Var&);
 
+	Var& operator=(const float);
 	Var& operator+=(const float);
 	Var& operator-=(const float);
 	Var& operator*=(const float);
@@ -50,7 +50,6 @@ struct Var
 struct Tape
 {
 	std::vector<Node> nodes;
-	std::vector<Var*> vars;
 	uint id;
 	bool rpt;
 	Tape();
@@ -240,8 +239,6 @@ inline Var sigmoid(const Var& x)
 	return x.tape->var(y, y * (1 - y), x.id);
 }
 
-#ifdef uint
 #undef uint
 #endif
-
 #endif
