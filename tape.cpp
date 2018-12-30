@@ -5,7 +5,6 @@ using namespace std;
 
 #ifndef uint
 #define uint unsigned int
-#endif
 
 Node::Node(const float w1, const uint a, const float w2, const uint b)
 {
@@ -32,10 +31,14 @@ void Var::grad(Grad& grad)
 	for (int i = id; i >= 0; i--)
 	{
 		const float d = grad.d[i];
-		const Node* node = tape->get(i);
+		
+		if (d != 0)
+		{
+			const Node* node = tape->get(i);
 
-		grad.d[node->a] += node->w1 * d;
-		grad.d[node->b] += node->w2 * d;
+			grad.d[node->a] += node->w1 * d;
+			grad.d[node->b] += node->w2 * d;
+		}
 	}
 }
 
@@ -126,17 +129,16 @@ Var Tape::var(const float x, const float w1, const uint a, const float w2, const
 	return Var(this, nodes.size()-1, x);
 }
 
-uint Tape::push(const float w1, const uint a, const float w2, const uint b)
+uint Tape::push(const float da, const uint a, const float db, const uint b)
 {
 	if (rpt) 
 	{
-		nodes[id].set(w1, w2);
+		nodes[id].set(da, db);
 		return id++;
 	}
-	nodes.push_back(Node(w1, a, w2, b));
+	nodes.push_back(Node(da, a, db, b));
 	return nodes.size()-1;
 }
 
-#ifdef uint
 #undef uint
 #endif

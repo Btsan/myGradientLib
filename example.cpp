@@ -11,9 +11,9 @@ int main(int argc, char const *argv[])
 	// Tape saves partial derivatives from operations on Var objects
 	Tape t;
 
-	// pseudo-rng seeded randomly 
-	random_device rd;
-	mt19937 gen(rd());
+	// seed pseudo-rng
+	int seed = 2036384550;
+	mt19937 gen(seed);
 
 	int N = 100;
 	int dim = 2;
@@ -123,5 +123,6 @@ int main(int argc, char const *argv[])
 		learn_rate *= 0.99;
 	}
 
+	cout << "seed was " << seed << endl;
 	return 0;
 }
