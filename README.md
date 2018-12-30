@@ -80,11 +80,58 @@ dm/db = inf 	correct answer: 1/0
 ```c
 #include "tape.h"
 ```
-compile with C++11
+compile with C++11 and build with tape.cpp
+
+```make
+g++ example.cpp tape.cpp -std=c++11 -o example
+```
+
+### Example
+
+[example.cpp](https://github.com/Btsan/myGradientLib/blob/master/example.cpp) demonstrates using this library to train a multilayer perceptron neural network to model XOR.
+
+```make
+make example
+g++ example.cpp tape.cpp -O2 -std=c++11 -o example
+./example
+iteration 0/100 	mean_squared_loss = 0.223089
+iteration 1/100 	mean_squared_loss = 0.220401
+iteration 2/100 	mean_squared_loss = 0.218163
+iteration 3/100 	mean_squared_loss = 0.216287
+iteration 4/100 	mean_squared_loss = 0.214705
+iteration 5/100 	mean_squared_loss = 0.213361
+iteration 6/100 	mean_squared_loss = 0.212213
+iteration 7/100 	mean_squared_loss = 0.211225
+iteration 8/100 	mean_squared_loss = 0.210369
+iteration 9/100 	mean_squared_loss = 0.209623
+iteration 10/100 	mean_squared_loss = 0.208969
+iteration 11/100 	mean_squared_loss = 0.208391
+iteration 12/100 	mean_squared_loss = 0.207879
+iteration 13/100 	mean_squared_loss = 0.207421
+...
+iteration 83/100 	mean_squared_loss = 0.198765
+iteration 84/100 	mean_squared_loss = 0.198701
+iteration 85/100 	mean_squared_loss = 0.198638
+iteration 86/100 	mean_squared_loss = 0.198575
+iteration 87/100 	mean_squared_loss = 0.198512
+iteration 88/100 	mean_squared_loss = 0.198451
+iteration 89/100 	mean_squared_loss = 0.198389
+iteration 90/100 	mean_squared_loss = 0.198329
+iteration 91/100 	mean_squared_loss = 0.198268
+iteration 92/100 	mean_squared_loss = 0.198209
+iteration 93/100 	mean_squared_loss = 0.19815
+iteration 94/100 	mean_squared_loss = 0.198091
+iteration 95/100 	mean_squared_loss = 0.198033
+iteration 96/100 	mean_squared_loss = 0.197975
+iteration 97/100 	mean_squared_loss = 0.197918
+iteration 98/100 	mean_squared_loss = 0.197861
+iteration 99/100 	mean_squared_loss = 0.197805
+rm example
+```
 
 ---
 
-I referenced these webpages:
+I referenced these webpages on auto-differentiation:
 - <https://stats.stackexchange.com/questions/224140/step-by-step-example-of-reverse-mode-automatic-differentiation>
 
    A concise example of how reverse-accumulation of derivatives can compute gradients.
