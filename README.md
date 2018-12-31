@@ -94,38 +94,38 @@ g++ example.cpp tape.cpp -std=c++11 -o example
 make example
 g++ example.cpp tape.cpp -O2 -std=c++11 -o example
 ./example
-iteration 0/100 	mean_squared_loss = 0.223089
-iteration 1/100 	mean_squared_loss = 0.220401
-iteration 2/100 	mean_squared_loss = 0.218163
-iteration 3/100 	mean_squared_loss = 0.216287
-iteration 4/100 	mean_squared_loss = 0.214705
-iteration 5/100 	mean_squared_loss = 0.213361
-iteration 6/100 	mean_squared_loss = 0.212213
-iteration 7/100 	mean_squared_loss = 0.211225
-iteration 8/100 	mean_squared_loss = 0.210369
-iteration 9/100 	mean_squared_loss = 0.209623
-iteration 10/100 	mean_squared_loss = 0.208969
-iteration 11/100 	mean_squared_loss = 0.208391
-iteration 12/100 	mean_squared_loss = 0.207879
-iteration 13/100 	mean_squared_loss = 0.207421
+iteration 0/100 	mean_squared_loss = 0.387794
+iteration 1/100 	mean_squared_loss = 0.37101
+iteration 2/100 	mean_squared_loss = 0.354636
+iteration 3/100 	mean_squared_loss = 0.339012
+iteration 4/100 	mean_squared_loss = 0.324428
+iteration 5/100 	mean_squared_loss = 0.311094
+iteration 6/100 	mean_squared_loss = 0.299131
+iteration 7/100 	mean_squared_loss = 0.288576
+iteration 8/100 	mean_squared_loss = 0.27939
+iteration 9/100 	mean_squared_loss = 0.271484
+iteration 10/100 	mean_squared_loss = 0.264738
+iteration 11/100 	mean_squared_loss = 0.259018
+iteration 12/100 	mean_squared_loss = 0.254188
+iteration 13/100 	mean_squared_loss = 0.250121
+iteration 14/100 	mean_squared_loss = 0.2467
+iteration 15/100 	mean_squared_loss = 0.243823
+iteration 16/100 	mean_squared_loss = 0.241402
+iteration 17/100 	mean_squared_loss = 0.239362
+iteration 18/100 	mean_squared_loss = 0.237641
+iteration 19/100 	mean_squared_loss = 0.236185
+iteration 20/100 	mean_squared_loss = 0.234951
+iteration 21/100 	mean_squared_loss = 0.233902
+iteration 22/100 	mean_squared_loss = 0.233008
+iteration 23/100 	mean_squared_loss = 0.232244
+iteration 24/100 	mean_squared_loss = 0.23159
+iteration 25/100 	mean_squared_loss = 0.231028
+iteration 26/100 	mean_squared_loss = 0.230544
+iteration 27/100 	mean_squared_loss = 0.230126
+iteration 28/100 	mean_squared_loss = 0.229764
 ...
-iteration 83/100 	mean_squared_loss = 0.198765
-iteration 84/100 	mean_squared_loss = 0.198701
-iteration 85/100 	mean_squared_loss = 0.198638
-iteration 86/100 	mean_squared_loss = 0.198575
-iteration 87/100 	mean_squared_loss = 0.198512
-iteration 88/100 	mean_squared_loss = 0.198451
-iteration 89/100 	mean_squared_loss = 0.198389
-iteration 90/100 	mean_squared_loss = 0.198329
-iteration 91/100 	mean_squared_loss = 0.198268
-iteration 92/100 	mean_squared_loss = 0.198209
-iteration 93/100 	mean_squared_loss = 0.19815
-iteration 94/100 	mean_squared_loss = 0.198091
-iteration 95/100 	mean_squared_loss = 0.198033
-iteration 96/100 	mean_squared_loss = 0.197975
-iteration 97/100 	mean_squared_loss = 0.197918
-iteration 98/100 	mean_squared_loss = 0.197861
-iteration 99/100 	mean_squared_loss = 0.197805
+iteration 99/100 	mean_squared_loss = 0.226924
+seed was -1925795689
 rm example
 ```
 
