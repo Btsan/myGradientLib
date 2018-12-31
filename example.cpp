@@ -11,8 +11,10 @@ int main(int argc, char const *argv[])
 	// Tape saves partial derivatives from operations on Var objects
 	Tape t;
 
-	// seed pseudo-rng
-	int seed = 2036384550;
+	// seed pseudo-rng that initializes data and weights
+	// random_device rd;
+	// int seed = rd();
+	int seed = -1925795689;
 	mt19937 gen(seed);
 
 	int N = 100;
@@ -35,7 +37,7 @@ int main(int argc, char const *argv[])
 			}
 		}
 		// label data with XOR
-		target[i] = sign < dim;
+		target[i] = sign < dim && sign > 0;
 	}
 
 	// weights for a neural network of 2 inputs, 3 hidden units, and 1 output
