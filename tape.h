@@ -76,7 +76,7 @@ struct Tape
 		nodes.resize(1);
 	}
 };
-
+		
 struct Grad
 {
 	std::vector<float> d;
@@ -85,7 +85,36 @@ struct Grad
 	{
 		return d[x.id];
 	}
+
+	Grad& operator+=(const Grad&);
+	Grad& operator-=(const Grad&);
+	Grad& operator*=(const float);
+	Grad& operator/=(const float);
 };
+
+inline Grad operator+(Grad lhs, const Grad &rhs)
+{
+	lhs += rhs;
+	return lhs;
+}
+
+inline Grad operator-(Grad lhs, const Grad &rhs)
+{
+	lhs -= rhs;
+	return lhs;
+}
+
+inline Grad operator*(Grad lhs, const float rhs)
+{
+	lhs *= rhs;
+	return lhs;
+}
+
+inline Grad operator/(Grad lhs, const float rhs)
+{
+	lhs /= rhs;
+	return lhs;
+}
 
 inline Var operator+(Var lhs, const Var& rhs)
 {
@@ -127,6 +156,11 @@ inline Var operator*(Var lhs, const float rhs)
 {
 	lhs *= rhs;
 	return lhs;
+}
+inline Var operator*(const float lhs, Var rhs)
+{
+	rhs *= lhs;
+	return rhs;
 }
 inline Var operator/(Var lhs, const float rhs)
 {

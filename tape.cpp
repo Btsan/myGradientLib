@@ -1,5 +1,6 @@
 
 #include "tape.h"
+#include <iostream>
 
 using namespace std;
 
@@ -25,7 +26,8 @@ Var::Var(Tape* const t, const uint i, const float x)
 void Var::grad(Grad& grad)
 {
 	const uint n = tape->size();
-	grad.d = vector<float>(n, 0);
+	grad.d.clear();
+	grad.d.resize(n, 0);
 	grad.d[id] = 1;
 
 	for (int i = id; i >= 0; i--)
@@ -35,11 +37,46 @@ void Var::grad(Grad& grad)
 		if (d != 0)
 		{
 			const Node* node = tape->get(i);
-
-			grad.d[node->a] += node->w1 * d;
-			grad.d[node->b] += node->w2 * d;
+			grad.d.at(node->a) += node->w1 * d;
+			grad.d.at(node->b) += node->w2 * d;
 		}
 	}
+}
+
+Grad &Grad::operator+=(const Grad &b)
+{
+	for (uint i = 0; i < d.size(); i++)
+	{
+		d[i] += b.d[i];
+	}
+	return *this;
+}
+
+Grad &Grad::operator-=(const Grad &b)
+{
+	for (uint i = 0; i < d.size(); i++)
+	{
+		d[i] -= b.d[i];
+	}
+	return *this;
+}
+
+Grad &Grad::operator*=(const float b)
+{
+	for (uint i = 0; i < d.size(); i++)
+	{
+		d[i] *= b;
+	}
+	return *this;
+}
+
+Grad &Grad::operator/=(const float b)
+{
+	for (uint i = 0; i < d.size(); i++)
+	{
+		d[i] /= b;
+	}
+	return *this;
 }
 
 Var& Var::operator=(const Var& x)
@@ -81,6 +118,11 @@ Var& Var::operator^=(const Var& b)
 	return *this;
 }
 
+Var &Var::operator=(const float b)
+{
+	val = b;
+	return *this;
+}
 Var& Var::operator+=(const float b)
 {
 	id = tape->push(1, id, 1, 0); // dz/da, dz/db
