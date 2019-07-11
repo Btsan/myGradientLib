@@ -115,8 +115,8 @@ int main(int argc, char const *argv[])
 				}
 			}
 
-			// set Tape object on repeat, discards previous gradients to avoid allocating extra memory
-			t.repeat();
+			// clear Tape, discards previous graph to avoid allocating extra memory
+			t.clear();
 		}
 
 		cout << "iteration " << it << "/100 \tmean_squared_loss = " << squared_loss/100 << '\n';
