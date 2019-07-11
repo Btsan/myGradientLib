@@ -26,7 +26,7 @@ Every computer program uses primitive operations (e.g. add, subtract, multiply, 
    Container that stores a calculated gradient. It has a function for returning the derivative w.r.t. a Var object.
    
 ### [test.cpp](https://github.com/Btsan/myGradientLib/blob/master/test.cpp) output:
-###### Note that floating point error is noticeable
+###### Note that floating point error is noticeable in particularly long/complex functions
 ```
 ./test
 a = 2
@@ -80,7 +80,7 @@ dm/db = inf 	correct answer: 1/0
 ```c
 #include "tape.h"
 ```
-compile with C++11 and build with tape.cpp
+compile with C++11+ and build with tape.cpp
 
 ```make
 g++ example.cpp tape.cpp -std=c++11 -o example
@@ -88,7 +88,7 @@ g++ example.cpp tape.cpp -std=c++11 -o example
 
 ### Example
 
-[example.cpp](https://github.com/Btsan/myGradientLib/blob/master/example.cpp) demonstrates using this library to train a multilayer perceptron neural network to model XOR.
+[example.cpp](https://github.com/Btsan/myGradientLib/blob/master/example.cpp) demonstrates using this library to train a multilayer perceptron neural network to predict random noise.
 
 ```make
 make example
