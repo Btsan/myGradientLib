@@ -78,12 +78,12 @@ dm/db = inf 	correct answer: 1/0
 ### Usage
 
 ```c
-#include "tape.h"
+#include "tape.cpp"
 ```
-compile with C++11+ and build with tape.cpp
+compile with C++11+
 
 ```make
-g++ example.cpp tape.cpp -std=c++11 -o example
+g++ example.cpp -std=c++11 -o example
 ```
 
 ### Example
